@@ -1,0 +1,19 @@
+{
+  "name": "docusaurus-outline-generator",
+  "version": "1.0.0",
+  "description": "Docusaurus documentation outline generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ioncakephper/docusaurus-outline-generator.git"
+  },
+  "author": "Ion Gireada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ioncakephper/docusaurus-outline-generator/issues"
+  },
+  "homepage": "https://github.com/ioncakephper/docusaurus-outline-generator#readme"
+}
