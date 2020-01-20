@@ -20,5 +20,8 @@
     "fs": "0.0.1-security",
     "handlebars": "^4.7.2",
     "path": "^0.12.7"
-  }
+  },
+    "bin": {
+      "docsog": "./bin/docsog.js"
+    }
 }

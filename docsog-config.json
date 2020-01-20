@@ -1,0 +1,10 @@
+{
+    "docsPath": "./docs",
+    "templatesPath": "./templates",
+    "websitePath": "./website",
+    "markdownExtension": ".md",
+    "templateExtension": ".handlebars",
+    "jsonExtension": ".json",
+    "topicTitleCase": true,
+    "headerTitleCase": true
+}
