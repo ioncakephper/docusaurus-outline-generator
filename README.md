@@ -56,6 +56,7 @@ This will generate documentation files in `.docs` folder and will overide the `w
 You will change to `website` folder and start the docusaurus preview server -- details at [Docusaurus](https://docusaurus.io/docs).
 
 ```bash
+cd website
 npm start
 ```
 
