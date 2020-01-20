@@ -2,6 +2,7 @@ const docsog = require("../lib/docusaurusOutlineGenerator");
 const program = require("commander");
 const fs = require("fs");
 const path = require("path");
+const fn = require("../lib/fn");
 
 program
   .command("init")
@@ -16,6 +17,10 @@ program
 
       // default configuration
       fs.writeFileSync("docsog-config.json", JSON.stringify(options, null, 4), "utf8");
+
+      // copy default template files
+      // fs.copyFileSync("../lib/templates/topic.handlebars", "./template/topic.handlebars");
+      // fs.copyFileSync("../lib/templates/header.handlebars", "./template/header.handlebars");
 
       let outline = {
         "project": "Sample documentation outline",
@@ -53,17 +58,23 @@ program
    .option("-w, --websitepath <path>", "path where sidebars.json will be generated", defaultOptions.websitePath)
    .option("-c, --config <file>", "filename or full path to generation configuration file", "docsog-config.json")
    .action((source, cmdObj) => {
-      console.log("Generate");
-      console.log(cmdObj.opts());
+
+      let configFilename = fn.setMissingExtension(cmdObj.config, ".json");
+      let configSource = fs.readFileSync(configFilename, "utf8")
+      let options = JSON.parse(configSource);
+
+      options.docsPath = cmdObj.docspath;
+      options.templatesPath = cmdObj.templatespath;
+      options.websitePath = cmdObj.websitepath;
+
       if (!source) {
         source = "docsog-outline.json";
       }
-      console.log("Will use " + source);
-      let outlineSource = fs.readFileSync(source, "utf8");
+      let outlineSource = fs.readFileSync(fn.setMissingExtension(source, ".json"), "utf8");
       let outline = JSON.parse(outlineSource);
-      console.log(outline.topics);
+      
 
-      docsog.generate(outline.topics, defaultOptions);
+      docsog.generate(outline.topics, options);
    })
    
 
