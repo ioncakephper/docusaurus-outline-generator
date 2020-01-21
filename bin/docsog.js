@@ -46,6 +46,11 @@ program
       }
       fs.writeFileSync("docsog-outline.json", JSON.stringify(outline, null, 4), "utf8");
 
+      // copy original templates file into
+      let templatesPath = path.resolve(__dirname, "..", "lib", "templates");
+      fs.copyFileSync(path.join(templatesPath, "topic.handlebars"), path.join(options.templatesPath, "topic.handlebars"));
+      fs.copyFileSync(path.join(templatesPath, "header.handlebars"), path.join(options.templatesPath, "header.handlebars"));
+
     });
 
 let defaultOptions = docsog.defaultOptions;
