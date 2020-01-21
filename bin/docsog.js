@@ -20,16 +20,23 @@ program
       // default configuration
       fs.writeFileSync("docsog-config.json", JSON.stringify(options, null, 4), "utf8");
 
-      // copy default template files
-      // fs.copyFileSync("../lib/templates/topic.handlebars", "./template/topic.handlebars");
-      // fs.copyFileSync("../lib/templates/header.handlebars", "./template/header.handlebars");
-
       let outline = {
         "project": "Sample documentation outline",
         "topics": [
           {
             "title": "Getting started",
             "slug": "doc1",
+            "headers": [
+              "Installation",
+              "Quick Demo",
+              {
+                "title": "CLI Command",
+                "headers": [
+                  "docsog init",
+                  "docsog generate"
+                ]
+              }
+            ],
             "brief": "You can change the slug for this page, and then change the headerLinks in siteConfig.js",
             "topics": [
               "Outline JSON properties",
