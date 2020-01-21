@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const docsog = require("../lib/docusaurusOutlineGenerator");
 const program = require("commander");
 const fs = require("fs");
