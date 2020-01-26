@@ -6,9 +6,15 @@ const fs = require("fs");
 const path = require("path");
 const fn = require("../lib/fn");
 
+const packageFilename = path.join(__dirname, ".." ,"package.json");
+
+let packageSource = fs.readFileSync(packageFilename, "utf8");
+const version = JSON.parse(packageSource).version;
+
 program
+  .version(version)
   .command("init")
-  .description("Initialize Docusaurus Outline Generator")
+  .description("initialize docusaurus outline generator")
   .action(() => {
       let options = docsog.defaultOptions;
       let flds = [options.docsPath, options.templatesPath, options.websitePath];

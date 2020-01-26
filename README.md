@@ -12,6 +12,36 @@ npm install docusaurus-outline-generator -g
 
 After installing it globally, the `docsog` command is available.
 
+## Usage
+
+`docsog` provides two sub-commands: `init` and `generate`.
+
+```
+Usage: docsog [options] [command]
+
+Options:
+  -h, --help                   output usage information
+
+Commands:
+  init                         Initialize Docusaurus Outline Generator
+  generate [options] [source]  generate topic files in docs and navigation in sidebars.json
+```
+
+Options for `generate` sub-command:
+
+```
+Usage: generate [options] [source]
+
+generate topic files in docs and navigation in sidebars.json
+
+Options:
+  -d, --docspath <path>       path where documentation documents will be generated (default: "./docs")
+  -t, --templatespath <path>  path to templates used during generation (default: "./templates")
+  -w, --websitepath <path>    path where sidebars.json will be generated (default: "./website")
+  -c, --config <file>         filename or full path to generation configuration file (default: "docsog-config.json")
+  -h, --help                  output usage information
+```
+
 ## Generating Docusaurus Documentation with `docsog`
 
 ### Prerequisites
