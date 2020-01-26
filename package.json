@@ -10,10 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/ioncakephper/docusaurus-outline-generator.git"
   },
-  "author": {
-    "name": "Ion Gireada",
-    "email": "iongireada@gmail.com"
-  },
+  "author": "Ion Gireada <iongireada@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ioncakephper/docusaurus-outline-generator/issues"
