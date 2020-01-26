@@ -73,6 +73,7 @@ let defaultOptions = docsog.defaultOptions;
 program
    .command("generate [source]")
    .description("generate topic files in docs and navigation in sidebars.json")
+   .option("-r, --remove", "remove existing .md files in docs folder")
    .option("-d, --docspath <path>", "path where documentation documents will be generated", defaultOptions.docsPath)
    .option("-t, --templatespath <path>", "path to templates used during generation", defaultOptions.templatesPath)
    .option("-w, --websitepath <path>", "path where sidebars.json will be generated", defaultOptions.websitePath)
@@ -93,7 +94,15 @@ program
       let outlineSource = fs.readFileSync(fn.setMissingExtension(source, ".json"), "utf8");
       let outline = JSON.parse(outlineSource);
       
-
+      // deal with --remove option: remove .md files from docs folder
+      if (cmdObj.remove) {
+        if (fs.existsSync(options.docsPath)) {
+          let fls = fs.readdirSync(options.docsPath);
+          fls.forEach(docFile => {
+            fs.unlinkSync(path.join(options.docsPath, docFile));
+          })
+        }
+      }
       docsog.generate(outline.topics, options);
    })
    
