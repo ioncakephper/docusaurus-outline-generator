@@ -1,6 +1,17 @@
+<!-- omit in toc -->
 # docusaurus-outline-generator
 
 Generate topic files and navigation structure for Docusaurus. It generates `Markdown` files and `sidebars.json` file from an outline object.
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [CLI Commands](#cli-commands)
+  - [`init` CLI sub-command](#init-cli-sub-command)
+  - [`generate` CLI sub-command](#generate-cli-sub-command)
+- [Generating Docusaurus Documentation with `docsog`](#generating-docusaurus-documentation-with-docsog)
+  - [Prerequisites](#prerequisites)
+  - [Using `docsog` to generate documentation](#using-docsog-to-generate-documentation)
+
 
 ## Installation
 
@@ -14,18 +25,76 @@ After installing it globally, the `docsog` command is available.
 
 ## Usage
 
+In your scripts:
+
+```javascript
+
+const docsog = require("docusaurus-outline-generator")
+
+// create outline object
+let docProj = {
+    "project": "Sample documentation title",
+    "topics": [
+        {
+            "title": "Getting started",
+            "slug": "doc1", // as first topic, use this slug
+            "topics": [
+                "Installation",
+                "Usage",
+                {
+                    "title": "Topic with children",
+                    "topics": [
+                        "Child topic #1",
+                        "Child topic #2"
+                    ],
+                    // Add several headers in this topic
+                    "headers": [
+                        "Adding sub-topics to a topic",
+                        "Sub-topics of a sub-topic"
+                    ]
+                }
+                "Updates"
+            ]
+        }
+    ]
+}
+
+let options = {
+    "topicTitleCase": true,
+    "headerTitleCase": false
+}
+
+let topics = docProj.topics;
+
+docsog.generate(topics, options);
+```
+
+## CLI Commands
+
 `docsog` provides two sub-commands: `init` and `generate`.
 
 ```
 Usage: docsog [options] [command]
 
 Options:
+  -V, --version                output the version number
   -h, --help                   output usage information
 
 Commands:
-  init                         Initialize Docusaurus Outline Generator
+  init                         initialize docusaurus outline generator
   generate [options] [source]  generate topic files in docs and navigation in sidebars.json
 ```
+
+### `init` CLI sub-command
+
+Run the `init` sub-command to initialize the folders and files the `generate` sub-command will use. Typically, you need to run `init` only once. 
+
+```bash
+docsog init
+```
+This command creates template files in the `templates` folder, the `docsog-config.json` and `docsog-outline.json` files. The `docsog-config.json` contains configuration information, and the `docsog-outline.json` is the default outline source file. This files contains a demo outline. You can edit it with your preferred documentation outline. You can also create a different outline file and use it in `generate` sub-command.
+
+### `generate` CLI sub-command
 
 Options for `generate` sub-command:
 
