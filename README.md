@@ -12,7 +12,6 @@ Generate topic files and navigation structure for Docusaurus. It generates `Mark
   - [Prerequisites](#prerequisites)
   - [Using `docsog` to generate documentation](#using-docsog-to-generate-documentation)
 
-
 ## Installation
 
 Install `docusaurus-outline-generator` globally:
@@ -73,7 +72,7 @@ docsog.generate(topics, options);
 
 `docsog` provides two sub-commands: `init` and `generate`.
 
-```
+```text
 Usage: docsog [options] [command]
 
 Options:
@@ -98,7 +97,7 @@ This command creates template files in the `templates` folder, the `docsog-confi
 
 Options for `generate` sub-command:
 
-```
+```txt
 Usage: generate [options] [source]
 
 generate topic files in docs and navigation in sidebars.json
