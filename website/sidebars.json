@@ -1,0 +1,14 @@
+{
+    "docs": {
+        "Getting started": [
+            "doc1",
+            "outline-json-properties",
+            "writing-your-first-documentation"
+        ],
+        "Guides": [
+            "guides",
+            "building-new-features",
+            "standard-new-applications"
+        ]
+    }
+}
