@@ -1,6 +1,6 @@
 {
   "name": "docusaurus-outline-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Docusaurus documentation outline generator",
   "main": "index.js",
   "scripts": {
@@ -27,5 +27,11 @@
   },
   "bin": {
     "docsog": "./bin/docsog.js"
-  }
+  },
+  "keywords": [
+    "Docusaurus",
+    "Documentation",
+    "website",
+    "open source"
+  ]
 }
